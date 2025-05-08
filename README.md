@@ -20,4 +20,5 @@ NAST CV is a modern CV (Curriculum Vitae) builder web application that allows us
 
 ---
 
-("click here to see NAST_CV")["https://nast-cv-maker-1.onrender.com"]
+[click here to see NAST_CV](https://nast-cv-maker-1.onrender.com)
+
