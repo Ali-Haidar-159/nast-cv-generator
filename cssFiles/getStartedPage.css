@@ -1,0 +1,1251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#leftDiv {
+  padding: 5%;
+  grid-area: leftDiv;
+  height: 100vh;
+  background-color: #f2ece6;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  margin-bottom: 40px;
+  padding: 5px 10px;
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+#logo img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: -10px;
+  /* background-color: #f8c2cc; */
+  padding: 5px;
+}
+
+.logo-text {
+  font-size: 22px;
+  color: #333;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #ddd;
+  margin: 10px 0 20px 0;
+  width: 100%;
+}
+
+.btn {
+  margin-bottom: 10px;
+  text-align: left;
+  border-radius: 10px;
+  padding: 10px 12px;
+  transition: background-color 0.3s;
+  color: #555;
+  font-weight: normal;
+  border: none;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.selected-nav {
+  background-color: white;
+  color: #000;
+}
+
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#mainDiv {
+  display: grid;
+  grid-template-areas:
+    "leftDiv leftDiv rightDiv rightDiv rightDiv"
+    "leftDiv leftDiv rightDiv rightDiv rightDiv"
+    "leftDiv leftDiv rightDiv rightDiv rightDiv";
+  gap: 0;
+  grid-template-columns: 1fr 1fr 3fr 3fr 3fr;
+}
+
+#rightDiv {
+  grid-area: rightDiv;
+  height: 100vh;
+  background-color: #faf6f1;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.header-section {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1d1638;
+  margin-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #666;
+}
+
+.templates-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.template-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  background-color: transparent;
+}
+
+.template-preview {
+  width: 280px;
+  height: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.template-container:hover .template-preview {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.template-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.blank-template {
+  border: 2px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.template-container:hover .blank-template {
+  border-color: #999;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+}
+
+.template-container:hover .fa-plus,
+.template-container:hover .blank-template p {
+  color: #666;
+}
+
+.blank-template p {
+  font-size: 18px;
+  color: #999;
+}
+
+.template-title {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: 280px;
+  height: 40px;
+}
+
+#bottomButtonDiv {
+  margin-top: auto;
+  margin-bottom: 30px;
+  width: 80%;
+  margin-left: 20px;
+}
+
+#loginBtn {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 8px 60px;
+  font-weight: normal;
+}
+
+#signupBtn {
+  background-color: #1d1638;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 60px;
+  font-weight: normal;
+}
+
+.colorBtn:hover {
+  opacity: 0.9;
+}
+
+/* Modal Styles */
+.modal-dialog {
+  max-width: 400px;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+  padding: 35px;
+}
+
+.modal-body h1 {
+  text-align: center;
+  color: #1d1638;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.form-group {
+  margin-bottom: 15px; /* Reduced margin */
+  position: relative;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* Reduced margin */
+  color: #555;
+  font-size: 13px; /* Smaller font size */
+  font-weight: 500;
+}
+
+.form-group label i {
+  margin-right: 8px;
+  color: #888;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  border: 1px solid #e0e0e0;
+  border-radius: 6px; /* Slightly reduced radius */
+  font-size: 14px; /* Smaller font size */
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1d1638;
+  box-shadow: 0 0 0 2px rgba(29, 22, 56, 0.1);
+}
+
+.password-container {
+  position: relative;
+}
+
+.show-password,
+.show-password-signup,
+.show-password-reset,
+.show-password-confirm {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}
+
+/* Update the colors for login form links to match the image */
+
+/* "Forgot password?" link styling */
+.forgot-password {
+  text-align: left;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.forgot-password a {
+  color: #888; /* Blue color as shown in the image */
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* "Create account" link styling */
+.create-account {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.create-account a {
+  color: #666;
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+}
+
+/* Ensure the login button has the proper gradient */
+.login-btn {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  border: none;
+  border-radius: 40px; /* Slightly reduced radius */
+  background: linear-gradient(to right, #ff0080, #ff8c00);
+  color: white;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 12px; /* Reduced margin */
+  display: block;
+}
+
+.login-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 128, 0.2);
+}
+
+.create-account {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 15px;
+  color: #666;
+}
+
+.create-account a {
+  color: #1d1638;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.create-account a:hover {
+  color: #ff0080;
+}
+
+.reset-description {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.error-message {
+  color: #ff0080;
+  font-size: 12px;
+  margin-top: 5px;
+  display: none;
+}
+
+.link-text {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 15px;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+.link-text a {
+  color: #1d1638;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link-text a:hover {
+  color: #ff0080;
+}
+
+.form-control.error {
+  border-color: #ff0080;
+}
+
+.error-message.show {
+  display: block;
+}
+
+/* Modern Checkbox */
+.modern-checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.modern-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.modern-checkbox-label {
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+  font-size: 15px;
+  color: #444;
+  line-height: 24px;
+  margin: 0;
+  user-select: none;
+}
+
+.modern-checkbox-label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.modern-checkbox:checked + .modern-checkbox-label:before {
+  background-color: white;
+  border-color: #ccc;
+}
+
+.modern-checkbox:checked + .modern-checkbox-label:after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid #1d1638;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Button Styles */
+.signup-btn {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  border: none;
+  border-radius: 40px; /* Slightly reduced radius */
+  background: linear-gradient(to right, #ff0080, #ff8c00);
+  color: white;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 12px; /* Reduced margin */
+}
+
+.signup-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 128, 0.2);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px; /* Smaller font size */
+  color: #555;
+}
+
+.login-link a {
+  color: #1d1638;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Signup Modal Specific Styles */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-checkbox {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-right: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.custom-checkbox .checkmark {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+}
+
+.custom-checkbox input:checked + .checkmark {
+  display: block;
+}
+
+.custom-checkbox input:checked ~ .checkbox-bg {
+  background-color: #1d1638;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+}
+
+.terms-text {
+  font-size: 12px;
+  color: #666;
+  text-align: left;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.terms-text a {
+  color: #1d1638;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.signup-btn {
+  margin-bottom: 15px;
+}
+
+/* Reset Password Modal Styles */
+.reset-description {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.error-message {
+  display: none;
+  color: #ff0080;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #666;
+  border-top: 1px solid #eee;
+}
+
+.login-link a {
+  color: #1d1638;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 800px) {
+  #mainDiv {
+    grid-template-columns: 1fr;
+    grid-template-areas: "rightDiv";
+  }
+
+  #leftDiv {
+    display: none;
+  }
+
+  .templates-row {
+    justify-content: center;
+  }
+
+  .header-section {
+    text-align: center;
+  }
+}
+
+/* Logout Button style */
+
+/* Add these styles to your existing CSS file */
+
+/* My account styles for logged-in user */
+.account-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.user-icon {
+  margin-right: 10px;
+  color: #666;
+  font-size: 18px;
+}
+
+.account-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.account-link:hover {
+  color: #1d1638;
+  text-decoration: none;
+}
+
+/* Account dropdown styles */
+.account-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 20px;
+  width: 170px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.account-dropdown.show {
+  display: flex;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: #555;
+  text-decoration: none;
+  border-bottom: 1px solid #f2f2f2;
+  transition: background-color 0.2s;
+  font-size: 13px;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover {
+  background-color: #f9f9f9;
+}
+
+.dropdown-item i {
+  margin-right: 15px;
+  width: 20px;
+  text-align: center;
+  color: #666;
+}
+
+/* My account button highlight style */
+.my-account-highlight {
+  /* border: 2px solid #1d1638; */
+  border-radius: 10px;
+  padding: 10px 15px;
+}
+
+/* Position for the dropdown relative to bottomButtonDiv */
+#bottomButtonDiv {
+  position: relative;
+}
+
+/* Settings Page Styles */
+.settings-container {
+  padding: 30px 40px;
+  background-color: #faf6f1;
+}
+
+.settings-header {
+  margin-bottom: 30px;
+}
+
+.settings-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1d1638;
+}
+
+.settings-card {
+  width: 550px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.settings-card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1d1638;
+  margin-bottom: 20px;
+}
+
+/* Notification styles */
+.notification-option {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-container {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.checkbox-container input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #d1d1d1;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #9f73fc;
+  border-color: #9f73fc;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.notification-text {
+  font-size: 16px;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.notification-icon {
+  color: #ff9d76;
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+/* Plan styles */
+.plan-status {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.plan-status strong {
+  font-weight: 600;
+  color: #1d1638;
+}
+
+.upgrade-btn {
+  background-color: #1d1638;
+  color: white;
+  border: none;
+  border-radius: 13px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.upgrade-btn:hover {
+  background-color: #2a1f4f;
+}
+
+/* Login section styles */
+.login-section {
+  margin-bottom: 30px;
+}
+
+.login-section:last-child {
+  margin-bottom: 0;
+}
+
+.login-section h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.google-account {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 12px 15px;
+  border-radius: 6px;
+}
+
+.google-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  vertical-align: middle;
+  background-color: transparent;
+}
+
+.email-text {
+  font-size: 15px;
+  color: #444;
+}
+
+.password-info {
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.set-password-btn {
+  background-color: white;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.set-password-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Delete account styles */
+.delete-account-btn {
+  background-color: #ff5a5a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-account-btn:hover {
+  background-color: #e04848;
+}
+
+/* Student Benefits Styles */
+.benefits-container {
+  padding: 30px 40px;
+  background-color: #faf6f1;
+}
+
+.benefits-header {
+  margin-bottom: 30px;
+}
+
+.benefits-header h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #1d1638;
+}
+
+.benefits-card {
+  width: 550px;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.benefits-card h2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1d1638;
+  margin-bottom: 15px;
+}
+
+.benefits-description {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 25px;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.university-email {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-width: 450px;
+}
+
+.university-email:focus {
+  outline: none;
+  /* border-color: #9f73fc; */
+}
+
+.verification-btn {
+  background-color: #1d1638;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: fit-content;
+}
+
+.verification-btn:hover {
+  background-color: #2a1f4f;
+}
+
+/* Professional Form Styles - Add to your getStartedPage.css file */
+
+/* Common Modal Styles */
+.modal-dialog {
+  max-width: 400px;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.modal-body {
+  padding: 35px;
+}
+
+.modal-body h1 {
+  text-align: center;
+  color: #1d1638;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Form Group Styling */
+.form-group {
+  margin-bottom: 15px; /* Reduced margin */
+  position: relative;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; /* Reduced margin */
+  color: #555;
+  font-size: 13px; /* Smaller font size */
+  font-weight: 500;
+}
+
+.form-group label i {
+  margin-right: 8px;
+  color: #888;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  border: 1px solid #e0e0e0;
+  border-radius: 6px; /* Slightly reduced radius */
+  font-size: 14px; /* Smaller font size */
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #1d1638;
+  box-shadow: 0 0 0 2px rgba(29, 22, 56, 0.1);
+}
+
+/* Password Field Styling */
+.password-container {
+  position: relative;
+}
+
+.show-password,
+.show-password-signup,
+.show-password-reset,
+.show-password-confirm {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+  text-align: left;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.forgot-password a {
+  color: #0d6efd;
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+.forgot-password a:hover {
+  text-decoration: underline;
+}
+
+/* Gradient Button for Signup and can be used for login/reset too */
+.gradient-btn {
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  border: none;
+  border-radius: 40px; /* Slightly reduced radius */
+  background: linear-gradient(to right, #ff0080, #ff8c00);
+  color: white;
+  font-size: 14px; /* Smaller font size */
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 12px; /* Reduced margin */
+}
+
+.gradient-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 128, 0.2);
+}
+
+/* Account Links */
+.create-account,
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px; /* Smaller font size */
+  color: #555;
+}
+
+.create-account a,
+.login-link a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+.create-account a:hover,
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Error Message Styling */
+.error-message {
+  display: none;
+  color: #ff0080;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* More specific selectors to override the blue color and ensure they change to #666 */
+
+/* Forgot Password Link */
+.modal-body .forgot-password a,
+#forgotPasswordLink {
+  color: #777 !important; /* Using !important to ensure it overrides any other styles */
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+/* Create Account Link */
+.modal-body .create-account a,
+#switchToSignup {
+  color: #333 !important;
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+/* Login Link */
+.modal-body .login-link a,
+#switchToLogin,
+#switchToLoginFromReset {
+  color: #333 !important;
+  text-decoration: none;
+  font-size: 13px; /* Smaller font size */
+}
+
+/* Make sure hover states are also defined with !important */
+.modal-body .forgot-password a:hover,
+.modal-body .create-account a:hover,
+.modal-body .login-link a:hover,
+#forgotPasswordLink:hover,
+#switchToSignup:hover,
+#switchToLogin:hover,
+#switchToLoginFromReset:hover {
+  text-decoration: underline;
+  color: #666 !important;
+}
+
+/* Google Authentication Button Styles */
+.google-auth-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 12px; /* Reduced padding */
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 40px; /* Slightly reduced radius */
+  font-size: 14px; /* Smaller font size */
+  font-weight: 500;
+  color: #3c4043;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+.google-auth-btn:hover {
+  background-color: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+.google-auth-btn:focus {
+  outline: none;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+.google-auth-btn:active {
+  background-color: #f1f3f4;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 12px;
+}
+
+/* Separator line with "or" text */
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0; /* Reduced margin */
+  color: #70757a;
+  font-size: 13px; /* Smaller font size */
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #dadce0;
+}
+
+.separator::before {
+  margin-right: 15px;
+}
+
+.separator::after {
+  margin-left: 15px;
+}
+
+/* Make sure the google button appears above the form fields */
+.signup-form-fields {
+  margin-top: 10px;
+}

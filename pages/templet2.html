@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="templet2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add html2pdf library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo" />
+        </div>
+
+        <div class="sidebar-item active">
+            <div class="sidebar-icon">📝</div>
+            <div class="sidebar-text">Content</div>
+        </div>
+
+        <div class="sidebar-item">
+            <div class="sidebar-icon">🔧</div>
+            <div class="sidebar-text">Customize</div>
+        </div>
+
+        <div class="sidebar-item">
+            <div class="sidebar-icon">🔗</div>
+            <div class="sidebar-text">Links</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Main Content with independent scrolling -->
+        <div class="main-content">
+            <!-- Header remains fixed at the top -->
+            <div class="header">
+                <div class="resume-title">
+                    <strong>Resume 1</strong>
+                    <span class="verified-icon">✓</span>
+                </div>
+                <button class="download-btn">
+                    <strong>Download</strong>
+                    <span class="download-icon">⬇</span>
+                </button>
+            </div>
+
+            <!-- Edit Personal Details -->
+            <div class="edit-section">
+                <div class="section-header">
+                    <div class="section-title">Edit personal details</div>
+                    <a href="#" class="help-link">
+                        <span class="help-icon">📋</span>
+                        Need help?
+                    </a>
+                </div>
+
+                <form action="/template2" method="post">
+                    <!-- Profile Upload Section -->
+                    <div class="profile-upload">
+                        <div class="profile-circle">
+                            <img id="profile-image" src="" alt="Profile" style="display: none;">
+                            <div id="profile-placeholder" class="profile-icon">
+                                <i class="fa-solid fa-user" style="font-size: 40px; color: #aaa;"></i>
+                            </div>
+                            <label for="profile-upload-input" class="upload-btn">
+                                <i class="fa-solid fa-camera"></i>
+                            </label>
+                            <input type="file" id="profile-upload-input" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <!-- Resize controls will be inserted here by JavaScript -->
+
+                    <div class="form-group">
+                        <label class="form-label">Full name</label>
+                        <input type="text" class="form-input" placeholder="Enter your title, first- and last name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Job title <span class="optional">optional</span></label>
+                        <input type="text" class="form-input" placeholder="Enter Job title">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="form-label">Email <span class="recommended">recommended</span></label>
+                                <input type="email" class="form-input" placeholder="Enter email">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="form-label">Phone <span class="recommended">recommended</span></label>
+                                <input type="tel" class="form-input" placeholder="Enter Phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address <span class="recommended">recommended</span></label>
+                        <input type="text" class="form-input" placeholder="City, Country">
+                    </div>
+
+                    <div class="section-label">Personal information</div>
+
+                    <div>
+                        <button class="add-btn"><span class="add-icon">+</span> Date of Birth</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Nationality</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Marital status</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Gender</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Objective</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Professional Experience</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Education</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Skills</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Languages</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Hobbies</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Personal Quality</button>
+                    </div>
+
+                    <div class="section-label">Links</div>
+
+                    <div>
+                        <button class="add-btn"><span class="add-icon">+</span> Website</button>
+                        <button class="add-btn"><span class="add-icon">+</span> LinkedIn</button>
+                        <button class="add-btn"><span class="add-icon">+</span> GitHub</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Medium</button>
+                        <button class="add-btn"><span class="add-icon">+</span> ORCID</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Skype</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Bluesky</button>
+                        <a href="#" class="view-all">View all</a>
+                    </div>
+
+                    <div class="button-row">
+                        <button class="cancel-btn"><strong>Cancel</strong></button>
+                        <button class="save-btn">
+                            <span class="check-icon">✓</span>
+                            <strong>Save</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Template Preview -->
+        <div class="template-preview">
+            <div class="template-container">
+                <div class="container">
+                    <div class="left-content">
+                        <div class="profile-img">
+                            <img src="profile.png" alt="Profile Image">
+                        </div>
+
+                        <section class="contact">
+                            <h2><i class="fas fa-user"></i> CONTACT ME</h2>
+                            <p><i class="fas fa-phone-alt"></i>01767******</p>
+                            <p><i class="fas fa-envelope"></i>alihaidar@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i>H 28, R 1, Block B, Aftabnagar, Badda, Dhaka.</p>
+                            <p><i class="fas fa-birthday-cake"></i>11/05/2002</p>
+                            <p><i class="fas fa-flag"></i>Bangladeshi</p>
+                            <p><i class="fas fa-heart"></i>Unmarried</p>
+                            <p><i class="fas fa-venus-mars"></i>Male</p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <div class="divider"></div>
+
+                        <section class="education">
+                            <h2><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+                            <h3>East West University</h3>
+                            <p>Master Degree Graduate (2011-2013)</p>
+                            <h3>University of Chicago</h3>
+                            <p>Bachelor Degree Graduate (2007-2010)</p>
+                        </section>
+
+                        <div class="template-skill-category">Programming language</div>
+                        <p>C, C++, Java, HTML, CSS, Python, PHP, Javascript</p>
+
+                        <h2 class="template-section-title"><i class="fa-solid fa-star"></i> PERSONAL QUALITY</h2>
+                        <p>Good team player, believe in self-dignity, well communication skill, Enthusiastic, Sincere
+                            and Eager to learn.</p>
+
+                    </div>
+
+                    <div class="right-content">
+                        <section class="name">
+                            <h1>Md.Ali <span>Haidar</span></h1>
+                            <p>Department of Computer Science And Engineering</p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="about">
+                            <h2><i class="fas fa-user"></i>OBJECTIVE</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, cumque!</p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="experience">
+                            <h2><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h2>
+                            <h3>Senior Web Designer <span>2020-Present</span></h3>
+                            <p>Creative Agency / Chicago</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <h3>Graphic Designer <span>2015-2020</span></h3>
+                            <p>Creative Market / Chicago</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                            <h3>Marketing Manager <span>2013-2015</span></h3>
+                            <p>Manufacturing Agency / NJ</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        </section>
+
+                        <div class="divider"></div>
+
+                        <section class="skills">
+                            <h2><i class="fas fa-cogs"></i> SKILLS</h2>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Adobe Photoshop</li>
+                                <li><i class="fas fa-check"></i> Adobe Illustrator</li>
+                                <li><i class="fas fa-check"></i> Microsoft Word</li>
+                                <li><i class="fas fa-check"></i> HTML/CSS</li>
+                                <li><i class="fas fa-check"></i> PowerPoint</li>
+                            </ul>
+                        </section>
+                        <h2 class="template-section-title"><i class="fa-solid fa-heart"></i> HOBBIES</h2>
+                        <p>Teaching, Reading Books and Gardening, Playing Football & Cricket</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connect JavaScript files -->
+    <script src="temp2-main.js"></script>
+    <script src="profile-image-resizer.js"></script>
+
+</body>
+
+</html>

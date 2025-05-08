@@ -1,0 +1,849 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  display: flex;
+  background-color: #f4f4f5;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 140px;
+  height: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  margin-left: 30px;
+  margin-top: 20px;
+  border-radius: 30px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 28px;
+  margin: 20px 0;
+}
+
+.dashboard-btn {
+  background-color: #1e1034;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border: none;
+}
+
+.sidebar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  color: #555;
+  cursor: pointer;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.sidebar-item.active {
+  color: #ff6384;
+}
+
+.sidebar-icon {
+  font-size: 35px;
+  margin-bottom: 5px;
+}
+
+.sidebar-text {
+  font-size: 24px;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  padding: 20px;
+  gap: 20px;
+  padding-left: 40px;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.template-preview {
+  flex: 1;
+  max-width: 1100px;
+  max-height: 130vh;
+  overflow-y: auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.resume-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.verified-icon {
+  color: #8884ff;
+  margin-left: 10px;
+}
+
+.download-btn {
+  background-color: #1e1034;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+}
+
+.download-icon {
+  margin-left: 8px;
+}
+
+.edit-section {
+  background-color: white;
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 750;
+  color: #333;
+}
+
+.help-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 650;
+}
+
+.help-icon {
+  margin-right: 8px;
+  color: #666;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+}
+
+.optional,
+.recommended {
+  color: #999;
+  font-size: 12px;
+  font-weight: normal;
+  margin-left: 5px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f8f8f9;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-col {
+  flex: 1;
+}
+
+.profile-upload {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.profile-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #dcdcdc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-icon {
+  color: #ddd;
+  font-size: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+#profile-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ff6384;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 3px solid white;
+  z-index: 10;
+}
+
+.section-label {
+  font-size: 28px;
+  font-weight: 650;
+  color: #333;
+  margin: 30px 0 20px;
+}
+
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: #f8f8f9;
+  border: none;
+  border-radius: 20px;
+  color: #666;
+  font-size: 18px;
+  font-weight: 600;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.add-icon {
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.view-all {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background-color: transparent;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.save-btn {
+  padding: 12px 32px;
+  border: none;
+  border-radius: 25px;
+  background-color: #ff6384;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.check-icon {
+  font-size: 18px;
+}
+
+/* Resume Template Styling */
+.template-container {
+  width: 1100px;
+  height: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* Container for the two-column layout */
+.container {
+  display: flex;
+  background-color: #fff;
+  width: 100%;
+  height: 130vh;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: hidden;
+  max-width: 1000px;
+  min-height: 1200px;
+}
+
+/* Left column styling */
+.left-content {
+  width: 400px;
+  background-color: #333;
+  color: #fff;
+  padding: 40px 30px;
+  position: relative;
+}
+
+/* Profile image styling */
+.left-content .profile-img {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.left-content .profile-img img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #ffa500;
+  object-fit: cover;
+}
+
+/* Left column section headings */
+.left-content h2 {
+  font-size: 22px;
+  color: #ffa500;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 8px;
+}
+
+.left-content h3 {
+  font-size: 18px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* Contact section styling */
+.contact p {
+  margin-bottom: 16px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.contact i {
+  width: 30px;
+  margin-right: 15px;
+  color: #ffa500;
+  font-size: 20px;
+}
+
+/* Specific icons for personal details */
+.contact p:nth-child(5) i {
+  /* Date of Birth - 11/05/2002 */
+  font-family: "Font Awesome 6 Free";
+  content: "\f073"; /* Calendar icon */
+}
+
+.contact p:nth-child(6) i {
+  /* Nationality - Bangladeshi */
+  font-family: "Font Awesome 6 Free";
+  content: "\f024"; /* Flag icon */
+}
+
+.contact p:nth-child(7) i {
+  /* Marital Status - Unmarried */
+  font-family: "Font Awesome 6 Free";
+  content: "\f004"; /* Heart icon */
+}
+
+.contact p:nth-child(8) i {
+  /* Gender - Male */
+  font-family: "Font Awesome 6 Free";
+  content: "\f222"; /* Person icon */
+}
+
+/* Divider styling */
+.divider {
+  border-top: 1px solid #444 !important;
+  margin: 20px 0;
+}
+
+/* Education section styling */
+.education {
+  margin-bottom: 40px; /* Increased space after education section */
+}
+
+.education p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ccc;
+}
+
+.education h3 {
+  margin-bottom: 15px;
+  font-size: 24px;
+  color: #ccc;
+}
+
+/* Skills and personal qualities */
+.template-skill-category {
+  font-weight: bold;
+  color: #ffa500;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-size: 27px;
+}
+
+.template-skill-category + p {
+  font-size: 18px !important;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.left-content p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Right column styling */
+.right-content {
+  flex: 1;
+  padding: 40px;
+  color: #444;
+}
+
+/* Name section styling */
+.right-content .name {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-left: 5px solid #ffa500;
+}
+
+.right-content .name h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.right-content .name h1 span {
+  color: #ffa500;
+}
+
+.right-content .name p {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Right column section headings */
+.right-content h2 {
+  font-size: 24px;
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ffa500;
+  padding-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.right-content h2 i {
+  margin-right: 10px;
+  color: #ffa500;
+}
+
+/* Experience section styling */
+.experience h3 {
+  font-size: 20px;
+  color: #333;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.experience h3 span {
+  color: #ffa500;
+  font-size: 16px;
+}
+
+.experience p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Skills section styling */
+.skills ul {
+  list-style-type: none;
+  margin-left: 10px;
+}
+
+.skills li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.skills li i {
+  color: #ffa500;
+  margin-right: 10px;
+}
+
+/* Hobbies section styling */
+.template-section-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  border-left: 5px solid #ffa500;
+  display: flex;
+  align-items: center;
+}
+
+.template-section-title i {
+  margin-right: 10px;
+  color: #ffa500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-content {
+    width: 100%;
+  }
+}
+
+/* Enhanced visual elements */
+.about p {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 3px solid #ffa500;
+}
+
+/* Professional experience section enhancements */
+.experience h3 {
+  position: relative;
+}
+
+.experience p:first-of-type {
+  font-style: italic;
+  color: #666;
+}
+
+/* ===== ADDITIONAL STYLES FOR JAVASCRIPT FUNCTIONALITY ===== */
+
+/* Styles for added fields and delete buttons */
+.added-field {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.delete-field-btn {
+  position: absolute;
+  right: 10px;
+  top: 32px;
+  background: none;
+  border: none;
+  color: #ff6384;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10;
+}
+
+.delete-field-btn:hover {
+  color: #e63e6d;
+}
+
+/* Styles for form sections */
+.section-form {
+  position: relative;
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.entries-container {
+  margin-bottom: 15px;
+}
+
+.entry-fields {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.fields-container {
+  width: 100%;
+}
+
+.entry-field {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.entry-title-field {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.entry-title-label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.delete-section-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  color: #ff6384;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 5;
+}
+
+.delete-entry-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #ff6384;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.add-more-btn {
+  background-color: #f0f0f0;
+  border: 1px dashed #ccc;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #555;
+}
+
+.add-more-btn:hover {
+  background-color: #e8e8e8;
+}
+
+/* Additional Template styles for section content */
+.template-experience-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.template-experience-duration {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+  font-style: italic;
+}
+
+.template-experience-description {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.template-education-entry {
+  margin-bottom: 15px;
+}
+
+.template-education-degree {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.template-education-institution {
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.template-education-duration {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 3px;
+  font-style: italic;
+}
+
+.template-education-grades {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.template-education-location {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 3px;
+}
+
+.template-skills-list,
+.template-languages-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+}
+
+.template-skill-item,
+.template-language-item {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Style for PDF download loading indicator */
+.download-loading {
+  margin-left: 10px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* Styles for template contact items */
+.template-contact-item {
+  margin-bottom: 16px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.template-contact-item i {
+  width: 30px;
+  margin-right: 15px;
+  color: #ffa500;
+  font-size: 20px;
+}
+
+/* Template personal info container */
+.template-personal-info {
+  margin-top: 15px;
+}
+
+/* Template department/job title */
+.template-department {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Template links section */
+.template-links-section {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.template-links-section a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.template-links-section a:hover {
+  text-decoration: underline;
+}

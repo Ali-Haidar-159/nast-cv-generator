@@ -1,0 +1,40 @@
+{
+  "name": "cv_maker",
+  "version": "1.0.0",
+  "description": "This is a cv maker project where user gives his data. This website will make the cv based on the users given data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanvirhossain196/CSE412-Lab_3.git"
+  },
+  "keywords": [
+    "cv_maker"
+  ],
+  "author": "ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanvirhossain196/CSE412-Lab_3/issues"
+  },
+  "homepage": "https://github.com/tanvirhossain196/CSE412-Lab_3#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "chalk": "^4.1.2",
+    "connect-mongo": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.10.1",
+    "nodemon": "^3.1.9",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0"
+  }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="templet1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add html2pdf library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="logo">
+            <a href="/home"><img src="logo.jpg" alt="Logo" /></a>
+        </div>
+
+
+        <div class="sidebar-item active">
+            <div class="sidebar-icon">📝</div>
+            <div class="sidebar-text">Content</div>
+        </div>
+
+        <div class="sidebar-item">
+            <div class="sidebar-icon">🔧</div>
+            <div class="sidebar-text">Customize</div>
+        </div>
+
+        <div class="sidebar-item">
+            <div class="sidebar-icon">🔗</div>
+            <div class="sidebar-text">Links</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Main Content with independent scrolling -->
+        <div class="main-content">
+            <!-- Header remains fixed at the top -->
+            <div class="header">
+                <div class="resume-title">
+                    <strong>Resume 1</strong>
+                    <span class="verified-icon">✓</span>
+                </div>
+                <button class="download-btn">
+                    <strong>Download</strong>
+                    <span class="download-icon">⬇</span>
+                </button>
+            </div>
+
+            <!-- Edit Personal Details -->
+            <div class="edit-section">
+                <div class="section-header">
+                    <div class="section-title">Edit personal details</div>
+                    <a href="#" class="help-link">
+                        <span class="help-icon">📋</span>
+                        Need help?
+                    </a>
+                </div>
+
+                <form action="/template1" method="post">
+                    <!-- Profile Upload Section -->
+                    <div class="profile-upload">
+                        <div class="profile-circle">
+                            <img id="profile-image" src="" alt="Profile" style="display: none;">
+                            <div id="profile-placeholder" class="profile-icon">
+                                <i class="fa-solid fa-user" style="font-size: 40px; color: #aaa;"></i>
+                            </div>
+                            <label for="profile-upload-input" class="upload-btn">
+                                <i class="fa-solid fa-camera"></i>
+                            </label>
+                            <input type="file" id="profile-upload-input" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <!-- Resize controls will be inserted here by JavaScript -->
+
+                    <div class="form-group">
+                        <label class="form-label">Full name</label>
+                        <input type="text" class="form-input" placeholder="Enter your title, first- and last name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Job title <span class="optional">optional</span></label>
+                        <input type="text" class="form-input" placeholder="Enter Job title">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="form-label">Email <span class="recommended">recommended</span></label>
+                                <input type="email" class="form-input" placeholder="Enter email">
+                            </div>
+                        </div>
+                        <div class="form-col">
+                            <div class="form-group">
+                                <label class="form-label">Phone <span class="recommended">recommended</span></label>
+                                <input type="tel" class="form-input" placeholder="Enter Phone">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Address <span class="recommended">recommended</span></label>
+                        <input type="text" class="form-input" placeholder="City, Country">
+                    </div>
+
+                    <div class="section-label">Personal information</div>
+
+                    <div>
+                        <button class="add-btn"><span class="add-icon">+</span> Date of Birth</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Nationality</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Marital status</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Gender</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Objective</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Professional Experience</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Education</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Skills</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Languages</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Hobbies</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Personal Quality</button>
+                    </div>
+
+                    <div class="section-label">Links</div>
+
+                    <div>
+                        <button class="add-btn"><span class="add-icon">+</span> Website</button>
+                        <button class="add-btn"><span class="add-icon">+</span> LinkedIn</button>
+                        <button class="add-btn"><span class="add-icon">+</span> GitHub</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Medium</button>
+                        <button class="add-btn"><span class="add-icon">+</span> ORCID</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Skype</button>
+                        <button class="add-btn"><span class="add-icon">+</span> Bluesky</button>
+                        <a href="#" class="view-all">View all</a>
+                    </div>
+
+                    <div class="button-row">
+                        <button class="cancel-btn"><strong>Cancel</strong></button>
+                        <button class="save-btn">
+                            <span class="check-icon">✓</span>
+                            <strong>Save</strong>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Template Preview -->
+        <div class="template-preview">
+            <div class="template-container">
+                <div class="template-header">
+                    <!-- Template Profile Image -->
+                    <div class="template-profile-img">
+                        <img id="template-profile-image" src="" alt="Profile" style="display: none;">
+                        <div id="template-profile-placeholder">
+                            <i class="fa-solid fa-user" style="font-size: 40px; color: #aaa;"></i>
+                        </div>
+                    </div>
+
+                    <h1>Md.Ali Haidar</h1>
+                    <p class="template-department">Department of Computer Science And Engineering</p>
+
+                    <div class="template-contact-info">
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span>alihaidar@gmail.com</span>
+                        </div>
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <span>0176727****</span>
+                        </div>
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span>H 28, R 1, Block B, Aftabnagar, Badda, Dhaka.</span>
+                        </div>
+                    </div>
+
+                    <div class="template-personal-info">
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-cake-candles"></i>
+                            <span>11/05/2002</span>
+                        </div>
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-flag"></i>
+                            <span>Bangladeshi</span>
+                        </div>
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <span>unmarried</span>
+                        </div>
+                        <div class="template-contact-item">
+                            <i class="fa-solid fa-user"></i>
+                            <span>male</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-bullseye"></i> OBJECTIVE</h2>
+                <p>Looking for a position as a teaching assistant at EWU where I may use my skills to help students
+                    develop
+                    holistically and to assist teachers in an effective manner.</p>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-briefcase"></i> PROFESSIONAL EXPERIENCE</h2>
+                <div class="template-experience-item">
+                    <div class="template-job-title">Home Tutor <span class="template-date">2020 – present</span></div>
+                    <p>Home tutoring HSC and SSC students</p>
+                </div>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-graduation-cap"></i> EDUCATION</h2>
+                <div class="template-education-item">
+                    <div class="template-degree">Bachelor of Science in CSE <span class="template-date">11/2021 –
+                            present</span></div>
+                    <p>East West University</p>
+                    <p>CGPA : 3.67/4.00(93 credits completed, Current 10th semester)</p>
+                    <p>Dhaka, Bangladesh</p>
+                </div>
+
+                <div class="template-education-item">
+                    <div class="template-degree">Higher Secondary Certificate (HSC) <span class="template-date">2018 –
+                            2020</span></div>
+                    <p>Milestone College</p>
+                    <p>GPA : 4.58/5.00</p>
+                    <p>Dhaka, Bangladesh</p>
+                </div>
+
+                <div class="template-education-item">
+                    <div class="template-degree">Secondary School Certificate (SSC)</div>
+                    <p>Shibpur Union High School</p>
+                    <p>GPA : 4.67/5.00</p>
+                    <p>Nabinagar, Brahmanbaria, Bangladesh</p>
+                </div>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-laptop-code"></i> SKILLS</h2>
+                <div class="template-skill-category">Computer proficiency</div>
+                <p>MS word, Excel, PowerPoint</p>
+
+                <div class="template-skill-category">Operating system</div>
+                <p>Windows, Linux</p>
+
+                <div class="template-skill-category">Programming language</div>
+                <p>C, C++, Java, HTML, CSS, Python, PHP, Javascript</p>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-language"></i> LANGUAGES</h2>
+                <div class="template-languages">
+                    <div class="template-language">
+                        <div class="template-language-name">English</div>
+                        <p>Fluent in speaking and writing</p>
+                    </div>
+                    <div class="template-language">
+                        <div class="template-language-name">Bangla</div>
+                        <p>Mother tongue</p>
+                    </div>
+                </div>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-heart"></i> HOBBIES</h2>
+                <p>Teaching, Reading Books and Gardening, Playing Football & Cricket</p>
+
+                <h2 class="template-section-title"><i class="fa-solid fa-star"></i> PERSONAL QUALITY</h2>
+                <p>Good team player, believe in self-dignity, well communication skill, Enthusiastic, Sincere and Eager
+                    to
+                    learn.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Connect JavaScript files -->
+    <script src="temp1-main.js"></script>
+    <script src="temp1-combinition.js"></script>
+    <script src="temp1-multiple-fields-handler.js"></script>
+    <script src="temp1-buttonhandle.js"></script>
+    <script src="temp1-final-solution-with-pdf.js"></script>
+    <script src="profile-image-resizer.js"></script>
+    <script src="needHelp.js"></script>
+</body>
+
+</html>
